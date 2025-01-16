@@ -20,12 +20,6 @@ document_store = InMemoryDocumentStore()
 converter = PyPDFToDocument()
 docs = converter.run(sources=[Path("./data/CFS.pdf")])
 
-
-# dataset = load_dataset("bilgeyucel/seven-wonders", split="train")
-# documents = [Document(content=doc["content"], meta=doc["meta"]) for doc in dataset]
-
-# model = "sentence-transformers/multi-qa-mpnet-base-dot-v1"
-
 document_store = InMemoryDocumentStore()
 
 embedder = SentenceTransformersDocumentEmbedder(
