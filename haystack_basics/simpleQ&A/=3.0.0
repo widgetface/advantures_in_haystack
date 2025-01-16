@@ -1,7 +1,0 @@
-Collecting sentence-transformers
-  Downloading sentence_transformers-3.3.1-py3-none-any.whl (268 kB)
-Collecting Pillow
-  Downloading pillow-11.1.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.4 MB)
-Requirement already satisfied: tqdm in /home/davt/python_projects/haystack_projects/advantures_in_haystack/haystack_basics/.venv/lib/python3.9/site-packages (from sentence-transformers) (4.67.1)
-Collecting torch>=1.11.0
-  Downloading torch-2.5.1-cp39-cp39-manylinux1_x86_64.whl (906.5 MB)
