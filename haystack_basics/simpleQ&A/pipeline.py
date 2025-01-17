@@ -75,5 +75,5 @@ class AnswerGenerator:
                 "reader": {"query": query, "top_k": 3},
             }
         )
-        print(ans["reader"]["answers"][0])
+
         return ans["reader"]["answers"][0].data
