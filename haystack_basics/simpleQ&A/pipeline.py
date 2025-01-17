@@ -50,18 +50,8 @@ class AnswerGenerator:
 
         indexing_pipeline.run({"converter": {"sources": ["data/CFS.pdf"]}})
 
-    # query = "What are the symptoms of chronic fatigue syndrome"
-    # answer = documents_search_pipeline.run(
-    #     data={
-    #         "query_embedder": {"text": query},
-    #         "retriever": {"top_k": 3},
-    #         "reader": {"query": query, "top_k": 2},
-    #     }
-    # )
-
     def get_answer(self, query):
-        print(query)
-        print("################################")
+
         query_embedder = SentenceTransformersTextEmbedder(
             model="distilbert-base-uncased", prefix="query"
         )
@@ -87,4 +77,3 @@ class AnswerGenerator:
         )
         print(ans["reader"]["answers"][0])
         return ans["reader"]["answers"][0].data
-        # (query='what are the symptoms of chronic fatigue', score=0.7107764482498169, data
