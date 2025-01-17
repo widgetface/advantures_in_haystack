@@ -12,3 +12,5 @@ Note if you get an error
 See the [issue](https://github.com/huggingface/transformers/issues/35639)
 
 Solution: The cause here is the use of X | None types without a from __future__ import annotations line at the top of the file. 
+
+.venv/lib/python3.9/site-packages/transformers/generation/streamers.py
