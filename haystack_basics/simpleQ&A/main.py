@@ -15,15 +15,10 @@ from haystack.components.preprocessors import DocumentSplitter
 from haystack.components.writers import DocumentWriter
 from haystack.components.readers import ExtractiveReader
 
-pdf_path = "./data/CFS.pdf"
-document_store = InMemoryDocumentStore()
-converter = PyPDFToDocument()
-docs = converter.run(sources=[Path("./data/CFS.pdf")])
 
 document_store = InMemoryDocumentStore()
-
-
 converter = PyPDFToDocument()
+
 splitter = DocumentSplitter(split_by="passage", split_length=400, split_overlap=10)
 embedder = SentenceTransformersDocumentEmbedder(
     model="distilbert-base-uncased", prefix="passage"
