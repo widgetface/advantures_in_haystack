@@ -22,15 +22,13 @@ docs = converter.run(sources=[Path("./data/CFS.pdf")])
 
 document_store = InMemoryDocumentStore()
 
+
+converter = PyPDFToDocument()
+splitter = DocumentSplitter(split_by="passage", split_length=400, split_overlap=10)
 embedder = SentenceTransformersDocumentEmbedder(
-    model="intfloat/e5-large-v2", prefix="passage"
+    model="distilbert-base-uncased", prefix="passage"
 )
 embedder.warm_up()
-converter = PyPDFToDocument()
-splitter = DocumentSplitter()
-embedder = SentenceTransformersDocumentEmbedder(
-    model="intfloat/e5-large-v2", prefix="passage"
-)
 writer = DocumentWriter(document_store=document_store)
 
 # Create and connect pipeline
@@ -50,7 +48,7 @@ indexing_pipeline.run({"converter": {"sources": ["data/CFS.pdf"]}})
 # Query pipeline
 
 query_embedder = SentenceTransformersTextEmbedder(
-    model="intfloat/e5-large-v2", prefix="query"
+    model="distilbert-base-uncased", prefix="query"
 )
 retriever = InMemoryEmbeddingRetriever(document_store=document_store)
 reader = ExtractiveReader()
