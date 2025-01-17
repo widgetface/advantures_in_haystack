@@ -3,3 +3,12 @@
 
 ## This is a repo for haystack related projects:
 
+Note if you get an error
+```
+    RuntimeError: Failed to import transformers.generation.streamers because of the following error (look up to see its traceback):
+    unsupported operand type(s) for |: 'type' and 'NoneType'
+    
+```
+See the [issue](https://github.com/huggingface/transformers/issues/35639)
+
+Solution: The cause here is the use of X | None types without a from __future__ import annotations line at the top of the file. Opening a PR now
